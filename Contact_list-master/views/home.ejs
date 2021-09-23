@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title><%= locals.title%></title>
+        <script src="https://kit.fontawesome.com/ad617ed419.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/home.css">
+    </head>
+    <body>
+        
+        <h1 class='page_heading'><i class="fab fa-quinscape"></i> QUESTIONS</h1>
+
+        <div class='div1'>
+            <ul class='ul' >
+                
+                <% for (let i of contact_list){%>
+                    <li class='list_item'>
+                        <div class='li'>
+                            <div class='Question'><b><%= i.Question%></b></div>
+                            <div class='delete'><a href="/delete-contact/?id=<%=i.id %>">
+                                <i class="far fa-trash-alt"></i>
+                            </a></div>
+                            <div class='Option1'><b>1. <%= i.Option1%></b></div>
+                            <div class='Option2'><b>2. <%= i.Option2%></b></div>
+                            <div class='Option3'><b>3. <%= i.Option3%></b></div>
+                            <div class='Option4'><b>4. <%= i.Option4%></b></div>
+                            
+                        </div>
+                    </li>
+                <%}%>
+                
+            </ul>
+        </div>
+        <h4>Add New Question</h4>
+        <div class='div2'>
+            <form action="/create-contact" method="POST">
+                <input type="text" name="Question" placeholder="enter question" required><br>
+                <input type="text" name="Option1" placeholder="Option 1" required>
+                <input type="text" name="Option2" placeholder="Option 2" required>
+                <input type="text" name="Option3" placeholder="Option 3" required>
+                <input type="text" name="Option4" placeholder="Option 4" required><br>
+                <button type="submit">Add Question</button>
+            </form>
+        <script type="text/javascript" src="/js/home.js"></script>
+        </div>
+    </body>
+
+</html>
